@@ -1,0 +1,1 @@
+/opt/local/lib/swipl-6.4.1/lib/x86_64-darwin11.4.2
