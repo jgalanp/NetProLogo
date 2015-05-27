@@ -58,9 +58,7 @@ Before using the extension make sure you have installed the proper [NetLogo](htt
  * **IMPORTANT:** For Linux and Mac OS users, this step is not mandatory. The extension can set `java.library.path` programmatically. In this case you just have to add SWI-Prolog binaries path to the file `config.txt`. If you are not going to use this option delete `config.txt` file.
 
 ## How to use NetPrologo
-
 In order to use NetProLogo load the extension in the first line of the model:
-
 ```netlogo
 extensions[netprologo]
 ```
@@ -69,14 +67,12 @@ The following primitives are available:
 
 * **Open a new Prolog query:** `<Boolean> netprologo:run-query <PrologCall-String>`. This primitive will close a former query after doing the call, thus it will not be possible to obtain more solutions from it. It returns `true` if the query was successful (to obtain query results see `run-next` and `dereference-var`) or the solution is true, or `false` otherwise.
 * **Build Prolog Call:** `<Query-String> netprologo:build-prolog-call <Rear-Query-String> <Value-1> ... <Value-N>`. It is useful to make automatic arguments replacement in order to build the prolog call, specially when using lists as arguments. Arguments are automatically translated from NetLogo to Prolog. The place of every argument should be marked with `?X` in the `Rear-Query-String` where `X` is an argument ID (integer). The same argument can be used more than once by placing the same ID twice in the 'Rear-Query-String'. Example:
-```netlogo
-let call (netprologo:build-prolog-call "assert(fact(?1,?2,?3,?2))" nl-arg1 nl-arg2 nl-arg3)
-```
-
-The result will be something like:
-
-```prolog
-assert(fact(nl-arg1,nl-arg2,nl-arg3,nl-arg2))
-```
-
-* Advance till next solution: {\ttk $<$Boolean$>$ netprologo:run-next $<>$}. Load the next solution of the open query. It returns {\em false} if there are any more results to be read, in this case, the query is closed automatically. If it returns true, this next solution is ready to be read  (see {\em dereference-var}).
+ ```netlogo
+ let call (netprologo:build-prolog-call "assert(fact(?1,?2,?3,?2))" nl-arg1 nl-arg2 nl-arg3)
+ ```
+ The result will be something like:
+ ```prolog
+ assert(fact(nl-arg1,nl-arg2,nl-arg3,nl-arg2))
+ ```
+* **Advance till next solution:** `<$Boolean> netprologo:run-next <>`. Load the next solution of the open query. It returns `false` if there are any more results to be read, in this case, the query is closed automatically. If it returns `true`, this next solution is ready to be read  (see `dereference-var`).
+* 
