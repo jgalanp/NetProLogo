@@ -18,6 +18,12 @@ This is a NetProLogo old version which is not being maintained anymore. However 
 * Cross-platform compatibility. GPJ was entirely devoloped in Java.
 * Supports running multiple instances of the Prolog engine simultaneously, which can be very useful in multi-agent programming since it allows each agent having its own reasoner and knowledge base.
 
+## Download
+
+
+
+Any feedback you can provide regarding use cases, installation issues or future improvements will be very appreciated.
+
 ## Important notes
 
 Before using the extension make sure you have installed the proper [NetLogo](http://ccl.northwestern.edu/netlogo/download.shtml) and SWI-Prolog versions. In this [link](http://www.swi-prolog.org/download/stable?show=all) you can find the different SWI-Prolog versions.
@@ -83,4 +89,3 @@ The following primitives are available:
  * **Opens a query and stores N solutions:** `<Solution-storage> run-for-n-solutions <N> <PrologCall-String>`. Opens a new Prolog query, reads and store the first `N` solutions. It returns a reference to the solutions storage.
  * **Advances till next stored solution:** `<Boolean> netprologo:next-stored-solution <Solution-storage>`. Load the next solution of the stored query. It returns `false` if there are no more results to be read. If it returns `true`, this next solution is ready to be read  (see `dereference-stored-var`).
  * **Reads the value of a variable for the last loaded solution from storage:** `<List/String/Number> netprologo:dereference-stored-var <Solution-storage> <Var-name>`. In the current version it can read `Strings`, numbers (`Float` or `Integer`) and `NetLogo lists` made of any of the former elements, including `nested lists`. Thus other prolog data types like `functors` are not actually supported.
-
