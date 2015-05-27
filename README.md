@@ -20,7 +20,9 @@ This is a NetProLogo old version which is not being maintained anymore. However 
 
 ## Download
 
+The last NetProLogo version can be downloaded [here](https://github.com/jgalanp/NetProLogo/releases/download/v0.2/NetProLogo.zip).
 
+The extension comes with a set of sample models in order to englihten extension usage. Some of the sample models load an auxiliar Prolog file from the same directory using absolute paths, thus it will be necessary to correct that path (inside the NetLogo model) in order to point to the required prolog file.
 
 Any feedback you can provide regarding use cases, installation issues or future improvements will be very appreciated.
 
@@ -64,10 +66,13 @@ Before using the extension make sure you have installed the proper [NetLogo](htt
  * **IMPORTANT:** For Linux and Mac OS users, this step is not mandatory. The extension can set `java.library.path` programmatically. In this case you just have to add SWI-Prolog binaries path to the file `config.txt`. If you are not going to use this option delete `config.txt` file.
 
 ## How to use NetPrologo
+
 In order to use NetProLogo load the extension in the first line of the model:
 ```netlogo
 extensions[netprologo]
 ```
+
+**Note for Windows users:** When typing paths inside prolog code use Unix flavoured paths (i.e. using slash `/`, not backslash `\`).
 
 The following primitives are available:
 
