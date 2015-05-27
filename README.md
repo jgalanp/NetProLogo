@@ -77,4 +77,4 @@ The following primitives are available:
  assert(fact(nl-arg1,nl-arg2,nl-arg3,nl-arg2))
  ```
 * **Advance till next solution:** `<$Boolean> netprologo:run-next <>`. Load the next solution of the open query. It returns `false` if there are any more results to be read, in this case, the query is closed automatically. If it returns `true`, this next solution is ready to be read  (see `dereference-var`).
-* 
+* **Read the value of a variable for the last loaded solution:** `<List/String/Number> netprologo:dereference-var <Var-name>`. In the current version it can read `Strings`, numbers (`Float` or `Integer`) and `NetLogo lists` made of any of the former elements, including nested lists. Thus other prolog data types like functors are not actually supported.
