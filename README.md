@@ -78,3 +78,5 @@ The result will be something like:
 ```prolog
 assert(fact(nl-arg1,nl-arg2,nl-arg3,nl-arg2))
 ```
+
+* Advance till next solution: {\ttk $<$Boolean$>$ netprologo:run-next $<>$}. Load the next solution of the open query. It returns {\em false} if there are any more results to be read, in this case, the query is closed automatically. If it returns true, this next solution is ready to be read  (see {\em dereference-var}).
