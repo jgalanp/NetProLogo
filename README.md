@@ -17,4 +17,30 @@ This is a NetProLogo old version which is not being maintained anymore. However 
 * Cross-platform compatibility. [GPJ](http://www.gnu.org/software/gnuprologjava/gnuprologjava.html) was entirely devoloped in Java.
 * Supports running multiple instances of the [Prolog](http://en.wikipedia.org/wiki/Prolog) engine simultaneously, which can be very useful in multi-agent programming since it allows each agent having its own reasoner and knowledge base.
 
+## Important notes
+
+Before using the extension make sure you have installed the proper NetLogo and SWI-Prolog versions. In this [link](http://www.swi-prolog.org/download/stable?show=all) you can find different SWI-Prolog versions.
+
+##### Version compatibility
+
+* NetProLogo was developed for NetLogo 5.x
+* NetPrologo is compatible with SWI-Prolog 6.6.x and earlier versions. Note that the new SWI-Prolog 7.x is not supported yet.
+
+##### Windows users
+
+* Make sure you install a 32 bits SWI-Prolog. 64 bits version is not compatible since NetLogo uses a 32 bits JVM.
+
+##### Mac users
+
+* Application bundle is not supported (SWI-Prolog 6.6x). You can install SWI-Prolog 6.6.x using [Macports](http://www.swi-prolog.org/build/macos.html) or use [SWI-Prolog installers](http://www.swi-prolog.org/download/stable?show=all) for versions 6.4.x and earlier. The reason is that the extension needs SWI-Prolog to be installed in system's root and not in Mac OS Applications folder.
+
+##### Linux Users
+
+* Note that some SWI-Prolog packages for Linux comes without the JPL library. In this case you can install it separately.
+  * In many Linux repositopries this library is called *swi-prolog-java* (alternatively it could be swi-prolog-jpl).
+  * To can discover if you have this library installed by looking, within your SWI-Prolog installation, for the files *jpl.jar* and *libjpl.so*.
+    * The default paths of these files for SWI-Prolog 6.4.x in Ubuntu Trusty (14.04 LTS) are:
+        * */usr/lib/swi-prolog/lib/amd64/libjpl.so*
+        * */usr/lib/swi-prolog/lib/jpl.jar*
+
 ## Installation
