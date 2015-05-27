@@ -38,7 +38,7 @@ Before using the extension make sure you have installed the proper NetLogo and S
 
 * Note that some SWI-Prolog packages for Linux comes without the JPL library. In this case you can install it separately.
   * In many Linux repositopries this library is called *swi-prolog-java* (alternatively it could be swi-prolog-jpl).
-  * You can discover if this library is installed in your system by looking, within your SWI-Prolog installation, for the files *jpl.jar* and *libjpl.so*. The default paths of these files for SWI-Prolog 6.4.x in Ubuntu Trusty (14.04 LTS) are:
+  * You can find out if this library is installed in your system by looking, within your SWI-Prolog installation, for the files *jpl.jar* and *libjpl.so*. The default paths of these files for SWI-Prolog 6.4.x in Ubuntu Trusty (14.04 LTS) are:
   * */usr/lib/swi-prolog/lib/amd64/libjpl.so*
   * */usr/lib/swi-prolog/lib/jpl.jar*
 
