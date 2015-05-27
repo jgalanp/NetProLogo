@@ -59,6 +59,10 @@ Before using the extension make sure you have installed the proper [NetLogo](htt
 
 ## How to use NetPrologo
 
-In order to use netprologo load the extension in the first line of the model: {\ttk extensions[netprologo]}.
+In order to use NetProLogo load the extension in the first line of the model: {\ttk }.
+
+```NetLogo
+extensions[netprologo]
+```
 
 The following primitives are available:
