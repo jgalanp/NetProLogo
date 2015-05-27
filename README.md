@@ -75,6 +75,6 @@ let call (netprologo:build-prolog-call "assert(fact(?1,?2,?3,?2))" nl-arg1 nl-ar
 
 The result will be something like:
 
-```netlogo
+```prolog
 assert(fact(nl-arg1,nl-arg2,nl-arg3,nl-arg2))
 ```
