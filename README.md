@@ -40,19 +40,19 @@ Before using the extension make sure you have installed the proper [NetLogo](htt
 * Note that some SWI-Prolog packages for Linux comes without the JPL library. In this case you can install it separately.
   * In many Linux repositopries this library is called `swi-prolog-java` (alternatively it could be swi-prolog-jpl).
   * You can find out if this library is installed in your system by looking, within your SWI-Prolog installation, for the files `jpl.jar` and `libjpl.so`. The default paths of these files for SWI-Prolog 6.4.x in Ubuntu Trusty (14.04 LTS) are:
-  * */usr/lib/swi-prolog/lib/amd64/libjpl.so*
-  * */usr/lib/swi-prolog/lib/jpl.jar*
+  * `/usr/lib/swi-prolog/lib/amd64/libjpl.so`
+  * `/usr/lib/swi-prolog/lib/jpl.jar`
 
 ## Installation
 
 * At this point you should have SWI-Prolog properly installed in your system (following the notes above).
-* Go to the NetLogo folder. In *extensions* folder copy NetPrologo files. The files must look like:
- * */NetLogo x.x.x/extensions/netprologo/jpl.jar*
- * */NetLogo x.x.x/extensions/netprologo/netprologo.jar*
- * */NetLogo x.x.x/extensions/netprologo/config.txt* (this file is optional, details below)
+* Go to the NetLogo folder. In `extensions` folder copy NetPrologo files. The files must look like:
+ * `/NetLogo x.x.x/extensions/netprologo/jpl.jar`
+ * `/NetLogo x.x.x/extensions/netprologo/netprologo.jar`
+ * `/NetLogo x.x.x/extensions/netprologo/config.txt` (this file is optional, details below)
 * Add SWI-Prolog binaries path to your system PATH. These binaries are usualy found in:
- * **Windows:** *C:\Program Files (x86)\swipl\bin\* (there should be files like `libswipl.dll`, `jpl.dll`, etc)
-  * [How to set the path and environment variables in Windows](http://www.computerhope.com/issues/ch000549.htm)
+ * **Windows:** `C:\Program Files (x86)\swipl\bin\` (there should be files like `libswipl.dll`, `jpl.dll`, etc)
+   * [How to set the path and environment variables in Windows](http://www.computerhope.com/issues/ch000549.htm)
  * **Mac OS:** `/opt/local/lib/swipl-x.x.x/lib/x86_64-darwinx.x.x/` (there should be files like `libjpl.so`)
  * **Linux:** `/usr/lib/swi-prolog/lib/amd64/` (there should be files like `libjpl.dylib`, `libswipl.dylib`, etc.)
  * **IMPORTANT:** For Linux and Mac OS users, this step is not mandatory. The extension can set `java.library.path` programmatically. In this case you just have to add SWI-Prolog binaries path to the file `config.txt`. If you are not going to use this option delete `config.txt` file.
