@@ -1,5 +1,5 @@
 # NetProLogo
-NetProLogo (NetLogo + [Prolog](http://en.wikipedia.org/wiki/Prolog)) is a NetLogo extension that allows running Prolog code inside NetLogo in order to take advantage of [Prolog](http://en.wikipedia.org/wiki/Prolog) features to provide NetLogo agents  (turtles, links and patches... or the observer) with reasoning capabilities.
+NetProLogo ([NetLogo](https://ccl.northwestern.edu/netlogo/) + [Prolog](http://en.wikipedia.org/wiki/Prolog)) is a [NetLogo](https://ccl.northwestern.edu/netlogo/) extension that allows running [Prolog](http://en.wikipedia.org/wiki/Prolog) code inside [NetLogo](https://ccl.northwestern.edu/netlogo/) in order to take advantage of [Prolog](http://en.wikipedia.org/wiki/Prolog) features to provide [NetLogo](https://ccl.northwestern.edu/netlogo/) agents  (turtles, links and patches... or the observer) with reasoning capabilities.
 
 There exist two major NetProLogo versions depending on the [Prolog](http://en.wikipedia.org/wiki/Prolog) engine they use:
 
@@ -12,5 +12,9 @@ This is the NetPrologo version currently active. We have changed to [SWI-Prolog]
 
 ##### NetProLogo for GPJ (GNU Prolog for Java)
 
-- GNU Prolog for Java based (the old one)
+This is a NetProLogo old version which is not being maintained anymore. However it is still available in this [site](http://www.cs.us.es/~fsancho/NetProLogo/). This version of the extension was ruled since [GPJ](http://www.gnu.org/software/gnuprologjava/gnuprologjava.html) supports only basic [Prolog](http://en.wikipedia.org/wiki/Prolog) sintax, therefore it was not compatible with most of the existing [Prolog](http://en.wikipedia.org/wiki/Prolog) code and extensions. Moreover its development was discontinued. The advantages of using this extension are:
 
+* Cross-platform compatibility. [GPJ](http://www.gnu.org/software/gnuprologjava/gnuprologjava.html) was entirely devoloped in Java.
+* Supports running multiple instances of the [Prolog](http://en.wikipedia.org/wiki/Prolog) engine simultaneously, which can be very useful in multi-agent programming since it allows each agent having its own reasoner and knowledge base.
+
+## Installation
