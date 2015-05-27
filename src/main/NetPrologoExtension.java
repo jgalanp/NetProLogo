@@ -1,15 +1,8 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Hashtable;
-import java.util.LinkedHashSet;
-import java.util.StringTokenizer;
 
 import jpl.Query;
 
@@ -25,6 +18,7 @@ import primitives.NextSolutionInStore;
 import primitives.RunNextJPL;
 import primitives.RunQueryJPL;
 import primitives.RunQueryNsolutions;
+import utils.PathManagement;
 import utils.SolStore;
 
 public class NetPrologoExtension extends DefaultClassManager {
@@ -39,9 +33,6 @@ public class NetPrologoExtension extends DefaultClassManager {
 	private static int idCounter;
 	// Maps active solitions Stores with their ids.
 	private static Hashtable<Integer,SolStore> solutionsStore;
-	
-	// Config file path.
-	private static final String CONFIG_FILE  = "extensions/netprologo/config.txt";
 	
     public java.util.List<String> additionalJars() {
         java.util.List<String> list = new java.util.ArrayList<String>();
@@ -75,70 +66,9 @@ public class NetPrologoExtension extends DefaultClassManager {
 		idCounter=0;
 		solutionsStore=new Hashtable<Integer,SolStore>();
 		
-		if(getOs().indexOf("win") < 0){
-			updateSystemPath();
+		if(PathManagement.getOs().indexOf("win") < 0){
+			PathManagement.updateSystemPath();
 		}
-	}
-	
-	// Read path (where prolog native libraries are) from config file.
-	private static String getConfigPath(File f) throws IOException{
-		BufferedReader br = new BufferedReader(new FileReader(f));
-		try {
-		    String line = br.readLine();
-		    if(line!=null && !line.equals(""))
-		    	return line;
-		    else
-		    	throw new IOException("Exception while reading config.txt");
-		} finally {
-		    br.close();
-		}
-	}
-	
-	private static void updateSystemPath() throws IOException, NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		File f=new File(CONFIG_FILE);
-		if(f.isFile()){
-			LinkedHashSet<String> pathList = getSystemPath();
-			pathList.add(getConfigPath(f));
-			String path=listToPath(pathList);
-			setLibraryPath(path);
-		}
-	}
-	
-	// Adds new path to system path.
-	private static void setLibraryPath(String path) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-	    System.setProperty("java.library.path", path);
-	    final Field sysPathsField = ClassLoader.class.getDeclaredField("sys_paths");
-	    sysPathsField.setAccessible(true);
-	    sysPathsField.set(null, null);
-	}
-	
-	// Reads current system path.
-	private static LinkedHashSet<String> getSystemPath(){
-		LinkedHashSet<String> ret=new LinkedHashSet<String>();
-		String property = System.getProperty("java.library.path");
-		StringTokenizer parser = new StringTokenizer(property, ":");
-		
-		while (parser.hasMoreTokens()) {
-			String token=parser.nextToken();
-			if(!token.trim().equals(".")&&!token.trim().equals("")){
-				ret.add(token.trim());
-			}
-		}
-		return ret;
-	}
-	
-	private static String listToPath(Collection<String> lp){
-		String ret="";
-		for(String s : lp){
-			String token=s.replaceAll("\\\\", "/");
-			ret+=token+":";
-		}
-		ret+=".";
-		return ret;
-	}
-	
-	public static String getOs(){
-		return System.getProperty("os.name").toLowerCase();
 	}
 	
 	// Close current query.
