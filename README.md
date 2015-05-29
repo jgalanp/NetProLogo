@@ -8,36 +8,36 @@ There exist two major NetProLogo versions depending on the Prolog engine they us
 
 This is the NetPrologo version currently active. We have changed to [SWI-Prolog](http://www.swi-prolog.org/) since it is the most widely used Prolog engine and it supports most of the existing Prolog code and extensions. This extension uses the [JPL](http://www.swi-prolog.org/packages/jpl/) library that comes with SWI-Prolog and provides a Java API to interact with it. However, this NetProLogo version presents two drawbacks with respect to the former one:
 
-* The extension allows having only one open Prolog call at once. The former version of the extension allowed having multiple instances of the Prolog engine running simultaneously.
+* The extension allows having only one open Prolog call at once (former version of the extension allowed multiple instances of the Prolog engine running simultaneously).
 * The installation of the extension is OS dependent as it relies on the SWI-Prolog installed on the system.
 
 ##### NetProLogo for GPJ (GNU Prolog for Java)
 
-This is a NetProLogo old version, which is not being maintained anymore. However it is still available in this [site](http://www.cs.us.es/~fsancho/NetProLogo/). This version of the extension was ruled since [GPJ](http://www.gnu.org/software/gnuprologjava/gnuprologjava.html) supports only basic Prolog syntax; therefore it was not compatible with most of the existing Prolog code and extensions. Moreover its development was discontinued. The advantages of using this extension are:
+This is the NetProLogo old version, which is not being maintained anymore. However it is still available in this [site](http://www.cs.us.es/~fsancho/NetProLogo/). This version of the extension was ruled since [GPJ](http://www.gnu.org/software/gnuprologjava/gnuprologjava.html) supports only basic Prolog syntax; therefore it was not compatible with most of the existing Prolog code and extensions. Moreover, its development was discontinued. Nevertheless, there are some advantages of using this extension:
 
-* Cross-platform compatibility. GPJ was entirely developed in Java.
+* Cross-platform compatibility. Since GPJ was entirely developed in Java.
 * Supports running multiple instances of the Prolog engine simultaneously, which can be very useful in multi-agent programming since it allows each agent having its own reasoner and knowledge base.
 
 ## Download
 
 The last NetProLogo version can be downloaded [here](https://github.com/jgalanp/NetProLogo/releases/download/v0.2/NetProLogo.zip).
 
-The extension comes with a set of sample models in order to enlighten extension usage. Some of the sample models load an auxiliary Prolog file from the same directory using absolute paths, thus it will be necessary to correct that path (inside the NetLogo model) in order to point to the required prolog file.
+The extension comes with a set of sample models in order to enlighten extension usage. Some of the sample models load an auxiliary Prolog file from the same directory using absolute paths, thus it could be necessary to fix the path inside the NetLogo model in order to point to the required prolog file.
 
 Any feedback you can provide regarding use cases, installation issues or future improvements will be very appreciated.
 
 ## Important notes
 
-Before using the extension make sure you have installed the proper [NetLogo](http://ccl.northwestern.edu/netlogo/download.shtml) and SWI-Prolog versions. In this [link](http://www.swi-prolog.org/download/stable?show=all) you can find the different SWI-Prolog versions.
+Before using the extension make sure you have installed the proper [NetLogo](http://ccl.northwestern.edu/netlogo/download.shtml) and SWI-Prolog versions. Different SWI-Prolog versions can be found [here](http://www.swi-prolog.org/download/stable?show=all).
 
 ##### Version compatibility
 
-* NetProLogo was developed for NetLogo 5.x
+* NetProLogo has been developed for NetLogo 5.x.
 * NetPrologo is compatible with SWI-Prolog 6.6.x and earlier versions. Note that the new SWI-Prolog 7.x is not supported yet.
 
 ##### Windows users
 
-* Make sure you install a 32 bits SWI-Prolog. 64 bits version is not compatible since NetLogo uses a 32 bits JVM.
+* Make sure you install a 32 bits SWI-Prolog. 64 bits versions are not compatible since NetLogo uses a 32 bits JVM.
 
 ##### Mac users
 
@@ -72,12 +72,12 @@ In order to use NetProLogo load the extension in the first line of the model:
 extensions[netprologo]
 ```
 
-**Note for Windows users:** When typing paths inside Prolog code use Unix flavor paths (i.e. using slash `/`, not backslash `\`).
+**Note for Windows users:** When typing paths inside Prolog code you must use Unix flavor paths (i.e. using slash `/`, not backslash `\`).
 
 The following primitives are available:
 
-* **Opens a new Prolog query:** `<Boolean> netprologo:run-query <PrologCall-String>`. This primitive will close a former query after doing the call, thus it will not be possible to obtain more solutions from it. It returns `true` if the query was successful (to obtain query results see `run-next` and `dereference-var`) or the solution is true, or `false` otherwise.
-* **Builds Prolog Call:** `<Query-String> netprologo:build-prolog-call <Rear-Query-String> <Value-1> ... <Value-N>`. It is useful to make automatic arguments replacement in order to build the Prolog call, especially when using lists as arguments. Arguments are automatically translated from NetLogo to Prolog. The place of every argument should be marked with `?X` in the `Rear-Query-String` where `X` is an argument ID (integer). The same argument can be used more than once by placing the same ID twice in the `Rear-Query-String`. Example:
+* **Open a new Prolog query:** `<Boolean> netprologo:run-query <PrologCall-String>`. This primitive will close a former query after doing the call, thus it will not be possible to obtain more solutions from it. It returns `true` if the query was successful (to obtain query results see `run-next` and `dereference-var`) or the solution is true, or `false` otherwise.
+* **Build Prolog Call:** `<Query-String> netprologo:build-prolog-call <Rear-Query-String> <Value-1> ... <Value-N>`. It is useful to make automatic arguments replacement in order to build the Prolog call, especially when using lists as arguments. Arguments are automatically translated from NetLogo to Prolog. The place of every argument should be marked with `?X` in the `Rear-Query-String` where `X` is an integer argument ID (as it is common in NetLogo). The same argument can be used more than once by placing the same ID twice in the `Rear-Query-String`. Example:
 
  ```netlogo
  let call (netprologo:build-prolog-call "assert(fact(?1,?2,?3,?2))" nl-arg1 nl-arg2 nl-arg3)
@@ -87,10 +87,10 @@ The following primitives are available:
  ```prolog
  assert(fact(nl-arg1,nl-arg2,nl-arg3,nl-arg2))
  ```
-* **Advances till next solution:** `<$Boolean> netprologo:run-next <>`. Load the next solution of the open query. It returns `false` if there are any more results to be read, in this case, the query is closed automatically. If it returns `true`, this next solution is ready to be read  (see `dereference-var`).
-* **Reads the value of a variable for the last loaded solution:** `<List/String/Number> netprologo:dereference-var <Var-name>`. In the current version it can read `Strings`, numbers (`Float` or `Integer`) and `NetLogo lists` made of any of the former elements, including `nested lists`. Thus other prolog data types like `functors` are not actually supported.
-* **Closes active query:** `<> netprologo:close-query <>`. Closes the last active query. Normally this primitive is not necessary since `run-query` primitive automatically closes the query before opening a new one.
-* **Makes a Prolog query to obtain several solutions:** In the former NetProLogo version (based on a GPJ) it was possible to have multiple Prolog instances running at the same time (and therefore multiple active queries). However in the current version it is not possible, as it is just an interface between NetLogo and the local SWI-Prolog installation. That is why some primitives have been added to allow querying and storing multiple solutions, to be read later, before running a new query:
- * **Opens a query and stores N solutions:** `<Solution-storage> run-for-n-solutions <N> <PrologCall-String>`. Opens a new Prolog query, reads and store the first `N` solutions. It returns a reference to the solutions storage.
- * **Advances till next stored solution:** `<Boolean> netprologo:next-stored-solution <Solution-storage>`. Load the next solution of the stored query. It returns `false` if there are no more results to be read. If it returns `true`, this next solution is ready to be read  (see `dereference-stored-var`).
- * **Reads the value of a variable for the last loaded solution from storage:** `<List/String/Number> netprologo:dereference-stored-var <Solution-storage> <Var-name>`. In the current version it can read `Strings`, numbers (`Float` or `Integer`) and `NetLogo lists` made of any of the former elements, including `nested lists`. Thus other Prolog data types like `functors` are not actually supported.
+* **Advance till next solution:** `<Boolean> netprologo:run-next <>`. Load the next solution of the open query. It returns `false` if there are no more results to be read, in this case, the query is closed automatically. If it returns `true`, this next solution is ready to be read  (see `dereference-var`).
+* **Read the value of a variable for the last loaded solution:** `<List/String/Number> netprologo:dereference-var <Var-name>`. In the current version it can read `Strings`, numbers (`Float` or `Integer`) and `NetLogo lists` made of any of the former elements, including `nested lists`. Currently, other prolog data types like `functors` are not supported.
+* **Close active query:** `<> netprologo:close-query <>`. Closes the last active query. Normally this primitive is not necessary since `run-query` primitive automatically closes the query before opening a new one.
+* **Make a Prolog query to obtain several solutions:** In the former NetProLogo version (based on a GPJ) it was possible to have multiple Prolog instances running at the same time (and therefore multiple active queries). However in the current version this is not longer possible, as it is just an interface between NetLogo and the local SWI-Prolog installation. That is why some primitives have been added to allow querying and storing multiple solutions, to be read later, before running a new query:
+ * **Open a query and store N solutions:** `<Solution-storage> run-for-n-solutions <N> <PrologCall-String>`. Opens a new Prolog query, reads and store the first `N` solutions. It returns a reference to the solutions storage.
+ * **Advance till next stored solution:** `<Boolean> netprologo:next-stored-solution <Solution-storage>`. Load the next solution of the stored query. It returns `false` if there are no more results to be read. If it returns `true`, this next solution is ready to be read  (see `dereference-stored-var`).
+ * **Read the value of a variable for the last loaded solution from storage:** `<List/String/Number> netprologo:dereference-stored-var <Solution-storage> <Var-name>`. In the current version it can read `Strings`, numbers (`Float` or `Integer`) and `NetLogo lists` made of any of the former elements, including `nested lists`. Other Prolog data types like `functors` are not supported.
