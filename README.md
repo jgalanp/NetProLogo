@@ -8,7 +8,7 @@ There exist two major NetProLogo versions depending on the Prolog engine they us
 
 This is the NetPrologo version currently active. We have changed to [SWI-Prolog](http://www.swi-prolog.org/) since it is the most widely used Prolog engine and it supports most of the existing Prolog code and extensions. This extension uses the [JPL](http://www.swi-prolog.org/packages/jpl/) library that comes with SWI-Prolog and provides a Java API to interact with it. However, this NetProLogo version presents two drawbacks with respect to the former one:
 
-* The extension allows having only one open Prolog call at once (former version of the extension allowed multiple instances of the Prolog engine running simultaneously).
+* The extension allows having only one open Prolog call at once.
 * The installation of the extension is OS dependent as it relies on the SWI-Prolog installed on the system.
 
 ##### NetProLogo for GPJ (GNU Prolog for Java)
