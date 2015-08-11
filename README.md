@@ -41,7 +41,7 @@ Before using the extension make sure you have installed the proper [NetLogo](htt
 
 ##### Mac users
 
-* Application bundle is not supported (SWI-Prolog 6.6x). You can install SWI-Prolog 6.6.x using [Macports](http://www.swi-prolog.org/build/macos.html) or use [SWI-Prolog installers](http://www.swi-prolog.org/download/stable?show=all) for versions 6.4.x and earlier. The reason is that the extension needs SWI-Prolog to be installed in system's root and not in Mac OS Applications folder.
+* Application bundle is not supported (SWI-Prolog 6.6.x). You can install SWI-Prolog 6.6.x using [Macports](http://www.swi-prolog.org/build/macos.html) or use [SWI-Prolog installers](http://www.swi-prolog.org/download/stable?show=all) for versions 6.4.x and earlier. The reason is that the extension needs SWI-Prolog to be installed in system's root and not in Mac OS Applications folder.
 
 ##### Linux Users
 
@@ -61,8 +61,8 @@ Before using the extension make sure you have installed the proper [NetLogo](htt
 * Add SWI-Prolog binaries path to your system PATH. These binaries are usually found in:
  * **Windows:** `C:\Program Files (x86)\swipl\bin\` (there should be files like `libswipl.dll`, `jpl.dll`, etc.)
    * [How to set the path and environment variables in Windows](http://www.computerhope.com/issues/ch000549.htm)
- * **Mac OS:** `/opt/local/lib/swipl-x.x.x/lib/x86_64-darwinx.x.x/` (there should be files like `libjpl.so`)
- * **Linux:** `/usr/lib/swi-prolog/lib/amd64/` (there should be files like `libjpl.dylib`, `libswipl.dylib`, etc.)
+ * **Mac OS:** `/opt/local/lib/swipl-x.x.x/lib/x86_64-darwinx.x.x/` (there should be files like `libjpl.dylib`)
+ * **Linux:** `/usr/lib/swi-prolog/lib/amd64/` (there should be files like `libjpl.so`)
  * **IMPORTANT:** For Linux and Mac OS users, this step is not mandatory. The extension can set `java.library.path` programmatically. In this case you just have to add SWI-Prolog binaries path to the file `config.txt`. If you are not going to use this option delete `config.txt` file.
 
 ## How to use NetProLogo
